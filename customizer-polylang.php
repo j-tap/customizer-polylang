@@ -3,7 +3,7 @@
  * 
  *
  * Plugin Name: Customizer polylang
- * Plugin URI: https://github.com/soderlind/customizer-polylang
+ * Plugin URI: https://github.com/j-tap/customizer-polylang
  * Description: Add Polylang to WordPress Customizer
  * Author: soderlind
  * Author URI: https://github.com/soderlind

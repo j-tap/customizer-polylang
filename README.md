@@ -25,10 +25,8 @@ $wp_customize->add_setting( 'setting_id', [
 ```
 
 ## Install
-1. Clone or download this repository into your child theme root folder
-1. In your child theme functions.php add customizer-polylang.php:
-
-    `require_once get_stylesheet_directory() . '/customizer-polylang.php';`
+1. Clone or download this repository into your plugins folder
+1. Activate plugin Customizer polylang in wordpress
 
 # Credits
 
