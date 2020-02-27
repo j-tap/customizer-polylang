@@ -1,5 +1,7 @@
 # Add Polylang to WordPress Customizer
 
+## (February 2020) Rewrite as plugin for wordpres, fix bug style swither, add hook call init
+
 ## (February 2019) Refactored by [Peder Andreas Nielsen](https://github.com/pederan) at [Dekode](https://en.dekode.no/?noredirect=en_US)
 
 <img src="assets/customizer-polylang.gif" />

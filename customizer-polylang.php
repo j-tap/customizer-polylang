@@ -1,5 +1,24 @@
 <?php
 /**
+ * 
+ *
+ * Plugin Name: Customizer polylang
+ * Plugin URI: https://github.com/soderlind/customizer-polylang
+ * Description: Add Polylang to WordPress Customizer
+ * Author: soderlind
+ * Author URI: https://github.com/soderlind
+ * Version: 1.0.1
+ *
+ * @package customizer-polylang
+ * @author soderlind
+ */
+
+/*
+* Register Custom Navigation Walker
+* If Bootstrap 4 used in theme
+*/
+
+/**
  * If Polylang is active:
  * - save and retrieve customizer setting per language
  * - on front-page, set options and theme mod for the selected language
@@ -7,14 +26,20 @@
  *
  * Inspired by https://github.com/fastlinemedia/customizer-export-import
  */
-namespace Soderlind\Customizer\Polylang; // replace with your namespace
+// namespace Soderlind\Customizer\Polylang; // replace with your namespace
 
-if ( ! \function_exists( 'pll_current_language' ) || ! \function_exists( 'pll_default_language' ) ) {
-	return;
-}
 
-// Instantiate the class.
-$GLOBAL['customizer_polylang'] = Customizer_Polylang::init();
+// define the pll_init callback 
+function action_pll_init( $array ) { 
+    if ( ! \function_exists( 'pll_current_language' ) || ! \function_exists( 'pll_default_language' ) ) {
+		exit('Customizer Polylang: function `pll_current_language` not exists!');
+	} else {
+		// Instantiate the class.
+		$GLOBAL['customizer_polylang'] = Customizer_Polylang::init();
+	}
+};
+// add the action 
+add_action( 'pll_init', 'action_pll_init', 10, 1 );
 
 /**
  * Class Customizer_Polylang
@@ -243,7 +268,7 @@ class Customizer_Polylang {
 	public function add_lang_to_customizer_previewer() {
 
 		$handle    = 'dss-add-lang-to-template';
-		$src       = get_stylesheet_directory_uri() . '/js/customizer-polylang.js';
+		$src       = plugin_dir_url( __FILE__ ) . 'js/customizer-polylang.js';
 		$deps      = [ 'customize-controls' ];
 		$version   = rand();
 		$in_footer = 1;
